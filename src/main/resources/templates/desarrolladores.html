@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trabajo 1 - Polimorfismo - Herencia de Interfaces</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background: #f4f6f8;
+            color: #222;
+        }
+        h1 { color: #2c3e50; }
+        .contador { color: #7f8c8d; margin-bottom: 20px; }
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 4px rgba(0,0,0,.12);
+        }
+        .tipo {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        .SeniorDev { background: #2980b9; }
+        .JuniorDev { background: #27ae60; }
+        .AI        { background: #8e44ad; }
+        .archivo { color: #34495e; font-weight: bold; margin-left: 8px; }
+        .metodo { margin: 8px 0; line-height: 1.4; }
+        .metodo b { color: #555; }
+    </style>
+</head>
+<body>
+
+    <h1>Trabajo 1 - Polimorfismo: Herencia de Interfaces</h1>
+    <p class="contador">
+        Total de objetos creados: <strong th:text="${totalObjetos}">0</strong> (se esperan 9: 3 SeniorDev, 3 JuniorDev, 3 AI)
+    </p>
+
+    <div class="card" th:each="r : ${resultados}">
+        <span class="tipo" th:classappend="${r.tipo}" th:text="${r.tipo}">Tipo</span>
+        <span class="archivo" th:text="${r.identificador}">archivo.java</span>
+
+        <div class="metodo"><b>escribir():</b> <span th:text="${r.mensajeEscribir}">...</span></div>
+        <div class="metodo"><b>depurar():</b> <span th:text="${r.mensajeDepurar}">...</span></div>
+        <div class="metodo"><b>desplegar():</b> <span th:text="${r.mensajeDesplegar}">...</span></div>
+    </div>
+
+</body>
+</html>
